@@ -10,7 +10,7 @@ export interface Car {
   imageUrl: string;
 }
 
-const Popularcar = async () => {
+const Home = async () => {
   const response: Car[] = await client.fetch(
     `*[_type == "car" ][0..1]{
         _id,
@@ -60,4 +60,4 @@ const Popularcar = async () => {
   );
 };
 
-export default Popularcar;
+export default Home;

@@ -4,7 +4,8 @@ import Home from './components/Home'
 
 const page = () => {
   return (
-    <div>
+    <div className='bg-white'>
+      <Home/>
     <Popularcar/></div>
   )
 }

@@ -3,9 +3,9 @@ import Image from "next/image"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
-import { createClient } from "@sanity/client"
 import { useCart, SelectedCar } from "@/app/context/cartCont"
 import { Heart } from "lucide-react"
+import { client } from "@/sanity/lib/client"
 
 // Define the Car interface based on Sanity schema
 interface Car {
@@ -26,13 +26,7 @@ interface Params {
   }
 }
 
-// Create a Sanity client
-const client = createClient({
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "",
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "",
-  useCdn: false,
-  apiVersion: "2023-05-03",
-})
+
 
 // Fetch car details function
 async function getCarDetails(_id: string): Promise<Car> {
