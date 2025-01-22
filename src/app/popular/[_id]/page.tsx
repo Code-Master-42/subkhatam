@@ -29,7 +29,7 @@ interface Params {
 
 
 // Fetch car details function
-async function getCarDetails(_id: string): Promise<Car> {
+async function getServerSideProps(_id: string): Promise<Car> {
   const response = await client.fetch(
     `*[_type == "car" && _id == $_id][0]{
       _id,
@@ -58,7 +58,7 @@ export default function CarDetails({ params }: Params) {
   useEffect(() => {
     async function fetchCarDetails() {
       try {
-        const carData = await getCarDetails(_id)
+        const carData = await getServerSideProps(_id)
         setCar(carData)
         setIsLoading(false)
       } catch (err) {
@@ -93,7 +93,7 @@ export default function CarDetails({ params }: Params) {
         images: [car.imageUrl],
         desc: car.type,
       })
-      router.push("/cart")
+      router.push("/")
     }
   }
 
