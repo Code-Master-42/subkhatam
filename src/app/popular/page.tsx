@@ -1,21 +1,19 @@
 import React from 'react'
 import Link from 'next/link';
-
+import { client } from '@/sanity/lib/client';
 import Image from 'next/image';
-import { client } from '../../sanity/lib/client';
+import { Heart } from 'lucide-react';
 export interface Car {
   _id: string;
   name: string;
-  pricePerDay:string;
+  pricePerDay: string;
   imageUrl: string;
-  type:string;
-  transmission:string;
-  seatingCapacity:string;
-  fuelCapacity:string
 }
+
+
 const Popularcar = async() => {
   const response: Car[] = await client.fetch(
-    `*[_type == "car" ][0..12]{
+    `*[_type == "car" ][0..10]{
         _id,
           name,
           pricePerDay,
@@ -32,7 +30,10 @@ const Popularcar = async() => {
               {response.map((car) => (
                 <div
                   key={car._id}
-                  className="bg-white shadow-md hover:shadow-lg transition-shadow transform hover:-translate-y-1 cursor-pointer p-6 rounded-lg relative overflow-hidden" >
+                  className="bg-white shadow-md hover:shadow-lg transition-shadow transform hover:-translate-y-1 cursor-pointer p-6 rounded-lg relative overflow-hidden"
+
+          >
+            
                   <div className="w-full h-60 overflow-hidden rounded-lg mb-4 relative">
                     <Image
                       src={car.imageUrl}
