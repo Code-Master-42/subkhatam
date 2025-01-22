@@ -93,7 +93,7 @@ export default function CarDetails({ params }: Params) {
         images: [car.imageUrl],
         desc: car.type,
       })
-      router.push("/")
+      router.push("/cart")
     }
   }
 
