@@ -17,6 +17,7 @@ export default function FavoritesPage() {
             {favorites.map((item) => (
               <div key={item.id} className="border p-4 rounded-lg bg-white shadow-md">
                 <h2 className="text-2xl font-semibold">{item.title}</h2>
+              
                 <p className="text-gray-600">Price: ${item.price.toLocaleString()}</p>
                 <div className="mt-4 flex justify-between items-center">
                   <Link href={`/cars/${item.id}`} className="text-blue-500 hover:text-blue-700">

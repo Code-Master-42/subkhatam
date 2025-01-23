@@ -50,7 +50,7 @@ const Home = async () => {
                 alt={car.name}
                 width={200}
                 height={200}
-                className="w-[60%] h-[40%] object-cover rounded-lg transition-transform duration-500 transform hover:scale-105"
+                className="md:w-[60%] md:h-[60%] w-[60%] h-[40%]  rounded-lg transition-transform duration-500 transform hover:scale-105"
               />
             </div>
           </div>
