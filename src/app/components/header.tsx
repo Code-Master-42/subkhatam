@@ -2,10 +2,11 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useCart } from '@/app/context/cartCont';
-import { Heart, Bell, ShoppingCart, Search } from 'lucide-react';
+import { Heart, Bell, ShoppingCart, Search, Clover } from 'lucide-react';
+import { ClerkLoaded, SignInButton, UserButton, useUser } from '@clerk/nextjs';
 
 export default function Header() {
-
+const {user}=useUser()
   const { favorites, rentalCartItems } = useCart();
   const [searchTerm, setSearchTerm] = useState('');
   
@@ -69,6 +70,23 @@ export default function Header() {
               <li>
                
               </li>
+              <ClerkLoaded>
+{user?(
+  <div>
+    <UserButton/>
+    <div className='hidden sm:block text-xs'>
+    <p className='text-gray-400'>WelcomBack</p>
+    <p className='font-bold'>{user.fullName}</p></div>
+  </div>
+):(
+  <SignInButton mode='modal'/>
+)}
+
+
+
+
+
+              </ClerkLoaded>
             </ul>
           </nav>
         </div>
