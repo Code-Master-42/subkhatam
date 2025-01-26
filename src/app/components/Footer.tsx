@@ -1,61 +1,99 @@
-import React from 'react';
+import React from "react";
+import Link from "next/link";
 
-export default function Footer() {
+const Footer: React.FC = () => {
   return (
-    <div className="relative flex flex-col items-center justify-center gap-6 px-5 w-full bg-white py-6">
-      <div className="first w-full flex flex-wrap items-start justify-between gap-6">
-        {/* Intro Section */}
-        <div className="intro flex flex-col gap-2 w-full lg:w-auto">
-          <h1 className="text-[#3563e9] text-2xl lg:text-3xl font-bold text-center lg:text-left">MORENT</h1>
-          <p className="text-gray-500 text-center lg:text-left w-[300px]">
-            Our vision is to provide convenience and help increase your sales bussiness.
+    <footer className="text-gray-600 body-font">
+      <div className="container px-5 py-24 mx-auto flex flex-col md:flex-row md:items-start">
+        {/* MORENT LOGO and PARAGRAPH */}
+        <div className="w-full md:w-64 text-center md:text-left flex flex-col items-center md:items-start">
+          <span className="text-[36px] text-blue-600 font-bold">MORENT</span>
+          <p className="mt-2 text-sm text-white text-center md:text-left">
+            Our vision is to provide convenience and help increase your sales
+            business.
           </p>
         </div>
 
-   
-        <div className="lists flex flex-wrap gap-6 justify-center lg:justify-between w-full lg:w-auto lg:mr-10">
-          <div className="about">
-            <ul className="flex flex-col gap-1">
-              <li className="font-bold text-lg"><h1>About</h1></li>
-              <li>How it works</li>
-              <li>Featured</li>
-              <li>Partnership</li>
-              <li>Business Relation</li>
+        {/* Links Section (About, Community, Socials) */}
+        <div className="flex-grow flex flex-col md:flex-row gap-10 mt-10 md:mt-0 text-center md:text-left">
+          {/* About Section */}
+          <div className="w-full md:w-1/3 flex flex-col">
+            <h2 className="title-font text-[20px] font-bold text-blue-800 tracking-widest mb-3">
+              About
+            </h2>
+            <ul className="gap-y-4 flex flex-col font-normal text-white">
+              <li>
+                <Link href={""}>How it works</Link>
+              </li>
+              <li>
+                <Link href={""}>Featured</Link>
+              </li>
+              <li>
+                <Link href={""}>Partnership</Link>
+              </li>
+              <li>
+                <Link href={""}>Business Relation</Link>
+              </li>
             </ul>
           </div>
-          <div className="community">
-            <ul className="flex flex-col gap-1">
-              <li className="font-bold text-lg"><h1>Community</h1></li>
-              <li>Events</li>
-              <li>Blog</li>
-              <li>Podcast</li>
-              <li>Invite a friend</li>
+
+          {/* Socials Section */}
+          <div className="w-full md:w-1/3 flex flex-col">
+            <h2 className="title-font text-[20px] font-bold text-blue-800 tracking-widest mb-3">
+              Socials
+            </h2>
+            <ul className="gap-y-4 flex flex-col font-normal text-white">
+              <li>
+                <Link href={""}>Discord</Link>
+              </li>
+              <li>
+                <Link href={"https://www.instagram.com/rarain904/?hl=en"}>Instagram</Link>
+              </li>
+              <li>
+                <Link href={"https://www.linkedin.com/in/rizwan-arain-06b551342/"}>LinkedIn</Link>
+              </li>
+              <li>
+                <Link href={"https://www.facebook.com/profile.php?id=100079132537786"}>Facebook</Link>
+              </li>
             </ul>
           </div>
-          <div className="socials">
-            <ul className="flex flex-col gap-1">
-              <li className="font-bold text-lg"><h1>Socials</h1></li>
-              <li>Discord</li>
-              <li>Instagram</li>
-              <li>Facebook</li>
-              <li>Twitter</li>
+
+          {/* Categories Section */}
+          <div className="w-full md:w-1/3 flex flex-col mt-10 md:mt-0">
+            <h2 className="title-font text-[20px] font-bold text-blue-800 tracking-widest mb-3">
+              Categories
+            </h2>
+            <ul className="gap-y-4 flex flex-col font-normal text-white">
+              <li>
+                <Link href={""}>Web Development</Link>
+              </li>
+              <li>
+                <Link href={""}>Mobile Apps</Link>
+              </li>
+              <li>
+                <Link href={""}>UI/UX Design</Link>
+              </li>
+              <li>
+                <Link href={""}>Digital Marketing</Link>
+              </li>
             </ul>
           </div>
         </div>
       </div>
 
- 
-      <div className="line border-t w-full border-[#e7eef6]"></div>
-
-      <div className="last w-full flex flex-wrap items-center justify-between gap-4">
-        <div className="first text-center lg:text-left w-full lg:w-auto">
-          <h1 className="font-bold text-sm">©2022 MORENT. All rights reserved</h1>
-        </div>
-        <div className="second flex flex-wrap justify-center lg:justify-end items-center gap-4 w-full lg:w-auto">
-          <h1 className="font-bold text-sm">Privacy & Policy</h1>
-          <h1 className="font-bold text-sm">Terms & Conditions</h1>
+      {/* Footer Bottom */}
+      <div className="bg-gray-100">
+        <div className="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
+          <p className="text-gray-500 text-sm text-center sm:text-left">
+            © 2022 MORENT. All rights reserved
+          </p>
+          <span className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start font-semibold text-black">
+            Privacy & Policy Terms & Condition
+          </span>
         </div>
       </div>
-    </div>
+    </footer>
   );
-}
+};
+
+export default Footer;

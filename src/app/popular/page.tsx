@@ -13,7 +13,7 @@ export interface Car {
 
 const Popularcar = async() => {
   const response: Car[] = await client.fetch(
-    `*[_type == "car" ][0..10]{
+    `*[_type == "car" ][0..8]{
         _id,
           name,
           pricePerDay,
@@ -59,6 +59,13 @@ const Popularcar = async() => {
             </div>
           </div>
         }
+         <div className="text-center mt-8">
+          <Link href="/Detail-car">
+            <button className="bg-blue-500 text-white py-3 px-6 rounded-lg shadow-lg hover:bg-blue-700 transition-colors duration-300 transform hover:scale-105">
+              Show More Cars
+            </button>
+          </Link>
+        </div>
     </div>
   )
 }

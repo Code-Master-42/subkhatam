@@ -10,7 +10,6 @@
     "import-data": "node scripts/importTemplate7Data.mjs"
   },
   "dependencies": {
-    "@clerk/nextjs": "^6.10.1",
     "@portabletext/block-tools": "^1.1.0",
     "@sanity/client": "^6.25.0",
     "@sanity/image-url": "^1.1.0",
@@ -23,7 +22,8 @@
     "react": "^18",
     "react-dom": "^18",
     "sanity": "^3.70.0",
-    "styled-components": "^6.1.14"
+    "styled-components": "^6.1.14",
+    "update": "^0.7.4"
   },
   "devDependencies": {
     "@types/node": "^20",

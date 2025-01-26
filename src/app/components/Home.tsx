@@ -1,63 +1,66 @@
-import React from 'react';
-import Link from 'next/link';
-import { client } from '@/sanity/lib/client';
-import Image from 'next/image';
+import Image from 'next/image'
+import Link from 'next/link'
+import React from 'react'
 
-export interface Car {
-  _id: string;
-  name: string;
-  pricePerDay: string;
-  imageUrl: string;
+const Home = () => {
+  return (
+    
+      
+<main className="bg-gray-50 p-6 ">
+{/* Hero Section */}
+<div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-10 mt-8">
+  {/* Left Hero Section */}
+  <div className="bg-blue-500 text-white p-8 rounded-lg flex flex-col justify-between shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105">
+    <h1 className="text-3xl font-semibold mb-4">
+      The Best Platform for Car Rental
+    </h1>
+    <p className="mb-6">
+      Ease of doing a car rental safely and reliably, all at an
+      affordable price.
+    </p>
+    <Link href="/Detail-car">
+      <button className="bg-white text-blue-500 py-3 px-6 rounded-lg shadow-md hover:bg-blue-100 transition-colors">
+        Explore Rentals
+      </button>
+    </Link>
+    <div className="mt-6">
+      <Image
+        src="/image 7.png"
+        alt="Car Image 1"
+        width={500}
+        height={300}
+        className="rounded-lg transition-transform duration-500 transform hover:scale-105"
+      />
+    </div>
+  </div>
+
+  {/* Right Hero Section */}
+  <div className="bg-blue-700 text-white p-8 rounded-lg flex flex-col justify-between shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105">
+    <h1 className="text-3xl font-semibold mb-4">
+      Rent Cars at Affordable Prices
+    </h1>
+    <p className="mb-6">
+      Providing cheap car rental services with comfort and safety
+      guaranteed.
+    </p>
+    <Link href="/Detail-car">
+      <button className="bg-white text-blue-700 py-3 px-6 rounded-lg shadow-md hover:bg-blue-100 transition-colors">
+        Explore Rentals
+      </button>
+    </Link>
+    <div className="mt-6">
+      <Image
+        src="/image 8.png"
+        alt="Car Image 2"
+        width={500}
+        height={300}
+        className="rounded-lg transition-transform duration-500 transform hover:scale-105"
+      />
+    </div>
+  </div>
+</div>
+    </main>
+  )
 }
 
-const Home = async () => {
-  const response: Car[] = await client.fetch(
-    `*[_type == "car" ][0..1]{
-        _id,
-        name,
-        pricePerDay,
-        "imageUrl": image.asset->url
-    }`
-  );
-
-  return (
-    <div className="container mx-auto px-4 py-10">
-      <div className="grid grid-cols-1 sm:grid-cols-2  gap-8">
-        {response.map((car) => (
-          <div
-            key={car._id}
-            className="flex flex-col justify-between w-full h-full bg-blue-500 shadow-md rounded-md p-4"
-          >
-            {/* Name at the Top */}
-            <h2 className="text-lg font-bold text-white mb-2 truncate mt-3">{car.name}</h2>
-
-            {/* Price Below Name */}
-            <p className="text-md text-gray-200 font-medium mt-8">${car.pricePerDay} / day</p>
-
-            {/* Button Centered in the Middle */}
-            <div className="flex item-center justify-start  mt-8">
-              <Link href={`/popular/${car._id}`}>
-                <button className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded-lg transition-all duration-300 transform hover:scale-105">
-                  Rent Now
-                </button>
-              </Link>
-            </div>
-
-            {/* Image at the Bottom */}
-            <div className="w-full h-60 overflow-hidden rounded-lg mt-4 relative flex items-center justify-center">
-              <Image
-                src={car.imageUrl}
-                alt={car.name}
-                width={200}
-                height={200}
-                className="md:w-[60%] md:h-[60%] w-[60%] h-[40%]  rounded-lg transition-transform duration-500 transform hover:scale-105"
-              />
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
-
-export default Home;
+export default Home
